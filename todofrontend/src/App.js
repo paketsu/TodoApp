@@ -7,7 +7,7 @@ const App = () => {
   const [todos, setTodos] = useState();
   useEffect(() => {
     if (todos === undefined) {
-      axios.get("/todos").then((response) => {
+      axios.get("/api/todos").then((response) => {
         setTodos(response.data.todos);
       }).catch((error) => {
         console.log(error);
@@ -16,7 +16,7 @@ const App = () => {
     }, [todos])
 
 const markAsCompleted = (id, completed) => {
-  axios.patch("/todos/" + id, {completed: !!completed ? "false" : "true"}).then((response) => {
+  axios.patch("/api/todos/" + id, {completed: !!completed ? "false" : "true"}).then((response) => {
     window.location.reload();
   }).catch((error) => {
     console.log(error)
@@ -24,7 +24,7 @@ const markAsCompleted = (id, completed) => {
 }
 
 const deleteTodo = (id) => {
-  axios.delete("/todos/" + id).then((response) => {
+  axios.delete("/api/todos/" + id).then((response) => {
     window.location.reload();
   }).catch((error) => {
     console.log(error)

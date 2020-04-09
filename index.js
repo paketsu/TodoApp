@@ -38,6 +38,8 @@ const todoRoutes = require("./routes/todoroutes")
 
 const errorHandler = require("./handlers/errorhandler")
 
+const path = require("path")
+
 app.use(cors())
 app.set("port", process.env.PORT || 8080)
 app.set("ip", "0.0.0.0")
@@ -50,6 +52,16 @@ app.use((req, res, next) => {
 
 // Tehdään tämä tänne kerran, jolloin todoroutes.js -tiedostossa ei tarvitse enää erikseen spesifioida polkua
 app.use("/api/todos", todoRoutes)
+
+//Serve react app in production to the browser
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname + '/todofrontend/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(
+            path.resolve(__dirname, 'todofrontend', 'build', 'index.html'),
+        );
+    });
+}
 
 app.use(errorHandler)
 
