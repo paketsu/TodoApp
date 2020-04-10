@@ -1,0 +1,8 @@
+@import "./variables.scss";
+
+main {
+    background-color: $blue;
+    h1, p {
+        color: $black;
+    }
+}
