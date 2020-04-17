@@ -9,7 +9,7 @@ const AddNewTodo = () => {
 
     const updateFormState = (event) => {
         console.log(formState)
-        setFormState(event.target.value)
+        setFormState({ [event.target.name]: [event.target.value]})
     }
 
     const submitForm = (event) => {

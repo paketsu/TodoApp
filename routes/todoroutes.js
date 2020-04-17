@@ -5,7 +5,7 @@ const Todo = require("../models/todo")
 
 router.get("/", async(req, res, next) => {
     try {
-        const todos = await Todo.find({ completed: false }).sort({ createdAt: 1 });
+        const todos = await Todo.sort({ createdAt: 1 });
         res.status(200).json({
             todos: todos
         })
