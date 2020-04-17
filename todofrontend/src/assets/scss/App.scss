@@ -1,8 +1,65 @@
 @import "./variables.scss";
 
 main {
-    background-color: $blue;
-    h1, p {
-        color: $black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $purple;
+    font-family: $titlefont;
+    color: $primary-color;
+    h1 {
+        font-family: $titlefont;
+        font-size: $titlesize;
+        text-align: center;
+    }
+    h2 {
+        font-family: $titlefont;
+        font-size: 1em;
+    }
+    p {
+        font-size: $normalsize;
     }
 }
+
+.todoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-self: center;
+    border-radius: 5px;
+    background-color: $white;
+    .createdContainer {
+        height: auto;
+        width: auto;
+        align-self: flex-start;
+        margin-left: -10px;
+        border-radius: 0px 5px 5px 0px;
+        background-color: $red;
+        color: white;
+        p {
+            font-size: 0.8em;
+            margin: 3px;
+        }
+    }
+    button {
+        height: auto;
+        width: auto;
+        align-self: center;
+        padding: 5px;
+        font-family: $font;
+        background-color: $green;
+        color: white;
+        border: solid 1px $green;
+        border-radius: 3px;
+    }
+}
+
+.todoNotCompleted {
+    border-top: 2px solid lightgrey;
+    align-self: center;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    width: fill;
+    background-color: white;
+}
+

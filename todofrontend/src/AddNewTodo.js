@@ -26,7 +26,7 @@ const AddNewTodo = () => {
         <form onSubmit={submitForm}>
             <input type="text" value={formState.title} name="title" onChange={updateFormState}/>
             <input type="radio" name="completed" value={formState.completed}/>
-            <button type="submit">Submit</button>
+            <button type="submit">Tee uusi tehtävä</button>
         </form>
     )
 }
